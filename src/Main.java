@@ -1,9 +1,12 @@
-
 import controller.UserController;
+import service.NotificationService;
 
 public class Main {
     public static void main(String[] args) {
-        UserController controller = new UserController();
+        NotificationService notificationService = new NotificationService();
+
+        UserController controller = new UserController(notificationService);
+
         controller.processUser();
     }
 }

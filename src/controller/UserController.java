@@ -3,6 +3,7 @@ package controller;
 import model.User;
 import service.UserService;
 import view.UserView;
+import service.NotificationService;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,8 +12,8 @@ public class UserController {
     private final UserService userService;
     private final UserView userView;
 
-    public UserController() {
-        this.userService = new UserService();
+    public UserController(NotificationService notificationService) {
+        this.userService = new UserService(notificationService);
         this.userView = new UserView();
     }
 
@@ -90,4 +91,3 @@ public class UserController {
         }
     }
 }
-

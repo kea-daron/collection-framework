@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class User {
     private Long id;
-    private UUID uuid = UUID.randomUUID();;
+    private UUID uuid = UUID.randomUUID();
     private String name;
     private String email;
     private boolean isDeleted;
@@ -18,7 +18,6 @@ public class User {
         this.isDeleted = false;
     }
 
-    // Getters and Setters
     public Long getId() { return id; }
     public UUID getUuid() { return uuid; }
     public String getName() { return name; }
@@ -34,4 +33,3 @@ public class User {
                 id, uuid, name, email, isDeleted);
     }
 }
-

@@ -1,6 +1,7 @@
 package service;
 
 import model.User;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -11,15 +12,19 @@ public class UserService {
     private final List<User> users;
     private final NotificationService notificationService;
 
-    public UserService() {
+    public UserService(NotificationService notificationService) {
         this.users = new ArrayList<>();
-        this.notificationService = new NotificationService();
+        this.notificationService = notificationService;
     }
 
     public User createUser(String name, String email) {
         User user = new User(name, email);
         users.add(user);
-        notificationService.sendTelegramNotification("New user created: " + user.getName());
+
+        String message = "New user created:\nName: " + user.getName() + "\nEmail: " + user.getEmail();
+
+        notificationService.sendTelegramNotification(message);
+
         return user;
     }
 
@@ -58,4 +63,3 @@ public class UserService {
         return (int) Math.ceil((double) activeUserCount / pageSize);
     }
 }
-

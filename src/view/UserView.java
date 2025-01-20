@@ -1,6 +1,7 @@
 package view;
 
 import model.User;
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
@@ -25,7 +26,7 @@ public class UserView {
     }
 
     public String[] getUserInfo() {
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
         System.out.print("Enter name: ");
         String name = scanner.nextLine();
         System.out.print("Enter email: ");
@@ -34,17 +35,15 @@ public class UserView {
     }
 
     public UUID getUuid() {
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
         System.out.print("Enter UUID: ");
         return UUID.fromString(scanner.nextLine());
     }
 
     public String[] getUpdateInfo() {
-        scanner.nextLine(); // Clear buffer
-        System.out.println("Leave blank to keep current value");
-        System.out.print("Enter new name (or press Enter to skip): ");
+        System.out.print("Enter new name (press Enter to skip): ");
         String name = scanner.nextLine();
-        System.out.print("Enter new email (or press Enter to skip): ");
+        System.out.print("Enter new email ( press Enter to skip): ");
         String email = scanner.nextLine();
         System.out.print("Enter new isDeleted status (true/false) (or press Enter to skip): ");
         String isDeleted = scanner.nextLine();
@@ -57,7 +56,6 @@ public class UserView {
         System.out.println("UUID: " + user.getUuid());
         System.out.println("Name: " + user.getName());
         System.out.println("Email: " + user.getEmail());
-        System.out.println("Is Deleted: " + user.isDeleted());
     }
 
     public void displayUsers(List<User> users, int currentPage, int totalPages) {
@@ -89,4 +87,3 @@ public class UserView {
         System.out.println("\n" + message);
     }
 }
-
